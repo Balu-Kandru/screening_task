@@ -9,12 +9,39 @@
 <body>
     <div>
         <title>screening task</title>
-        <h1>Hello World</h1>
+        <h1 id="counting" >Hello World</h1>
         <div>
-            <button onclick="" >start</button>
-            <button onclick="" >stop</button>
-            <button onclick="" >reset</button>
+            <button onclick="increment()" >start</button>
+            <button onclick="stop()" >stop</button>
+            <button onclick="reset()" >reset</button>
         </div>
     </div>
+     <!-- JavaScript code-->
+     <script>
+        
+        var data = 0;
+        var str="Hello World"
+        var timer = null;
+        //string appending with number function
+        function increment() {
+            timer = setInterval(()=> {
+                    data = data + 1;
+                    document.getElementById("counting").innerText = str +"-"+ data;
+                    }, 1000);
+            
+        }
+
+        //for clearing interval
+        function stop(){
+            window.clearInterval(timer);
+        }
+
+        //Reset function
+        function reset() {
+            stop()
+            document.getElementById("counting").innerText = str;
+            data=0
+        }
+    </script>
 </body>
 </html>
